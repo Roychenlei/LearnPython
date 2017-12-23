@@ -1,0 +1,5 @@
+INFO 2017-07-27 11:13:24,256 - our fist message
+INFO 2017-07-27 11:13:24,256 - quadratic_formaul(1,0,-1)
+DEBUG 2017-07-27 11:13:24,256 - # Compute the discriminant
+DEBUG 2017-07-27 11:13:24,256 - # Compute the two roots
+DEBUG 2017-07-27 11:13:24,256 -  # Return the roots

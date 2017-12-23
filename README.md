@@ -1,4 +1,1 @@
 # LearnPython
-```
-Data Type
-```

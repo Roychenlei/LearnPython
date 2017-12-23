@@ -1,0 +1,42 @@
+from functools import wraps
+def memo(fn):
+	cache={}
+	miss=object()
+
+	@wraps(fn)
+	def wrapper(*args):
+		result =cache.get(args,miss)
+		if result is miss:
+			result = fn(*args)
+			cache[args]=result
+		return result
+	return wrapper
+
+@memo
+def fib(n):
+	if n<2:
+		return n
+	return fib(n-1)+fib(n-2)
+
+print(fib(10))
+
+
+print("#####################################")
+
+
+import cProfile, pstats, StringIO
+ 
+def profiler(func):
+    def wrapper(*args, **kwargs):
+        datafn = func.__name__ + ".profile" # Name the data file
+        prof = cProfile.Profile()
+        retval = prof.runcall(func, *args, **kwargs)
+        #prof.dump_stats(datafn)
+        s = StringIO.StringIO()
+        sortby = 'cumulative'
+        ps = pstats.Stats(prof, stream=s).sort_stats(sortby)
+        ps.print_stats()
+        print s.getvalue()
+        return retval
+ 
+    return wrapper
