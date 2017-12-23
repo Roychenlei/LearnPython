@@ -1,0 +1,4 @@
+# LearnPython
+```
+Data Type
+```
